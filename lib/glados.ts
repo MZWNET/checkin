@@ -1,15 +1,15 @@
-import { GLaDOSCookie, userAgent } from "./env.ts";
-import { GLaDOSCheckinStatus, GLaDOSCheckinType } from "./types/glados.type.ts";
+const workerFunc = async (cookie: string) => {
+  import { GLaDOSCookie, userAgent } from "./env.ts";
+  import { GLaDOSCheckinStatus, GLaDOSCheckinType } from "./types/glados.type.ts";
 
-const checkinUrl = "https://glados.rocks/api/user/checkin",
-  statusUrl = "https://glados.rocks/api/user/status",
-  referer = "https://glados.rocks/console/checkin",
-  origin = "https://glados.rocks",
-  data = {
-    token: "glados.network",
-  };
+  const checkinUrl = "https://glados.rocks/api/user/checkin",
+    statusUrl = "https://glados.rocks/api/user/status",
+    referer = "https://glados.rocks/console/checkin",
+    origin = "https://glados.rocks",
+    data = {
+      token: "glados.network",
+    };
 
-const checkin = async (cookie: string) => {
   const checkin: GLaDOSCheckinType = await fetch(checkinUrl, {
     method: "POST",
     headers: {
@@ -38,8 +38,10 @@ const checkin = async (cookie: string) => {
   }
 };
 
-checkin(GLaDOSCookie);
+self.addEventListener("message", (event) => {
+  workerFunc(event.data.cookie);
+});
 
 export {
-  checkin as GLaDOSCheckin
+  workerFunc as GLaDOSCheckin
 };
