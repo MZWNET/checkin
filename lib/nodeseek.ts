@@ -1,12 +1,12 @@
-import { nodeseekCookie, userAgent } from "./env.ts";
-import { nodeseekCheckinType } from "./types/nodeseek.type.ts";
+const workerFunc = async (cookie: string, random: boolean) => {
+  import { nodeseekCookie, userAgent } from "./env.ts";
+  import { nodeseekCheckinType } from "./types/nodeseek.type.ts";
 
-let checkinBaseUrl = "https://www.nodeseek.com/api/attendance";
-const boardUrl = "https://www.nodeseek.com/api/attendance/board",
-  origin = "https://www.nodeseek.com",
-  referer = "https://www.nodeseek.com/board"
+  let checkinBaseUrl = "https://www.nodeseek.com/api/attendance";
+  const boardUrl = "https://www.nodeseek.com/api/attendance/board",
+    origin = "https://www.nodeseek.com",
+    referer = "https://www.nodeseek.com/board"
 
-const checkin = async (cookie: string, random: boolean) => {
   if (random) checkinBaseUrl += "?ramdom=true";
   const checkin: nodeseekCheckinType = await fetch(checkinBaseUrl, {
     method: "POST",
@@ -28,8 +28,10 @@ const checkin = async (cookie: string, random: boolean) => {
   else console.log(`Nodeseek签到失败，返回的消息：${checkin.message}`);
 }
 
-checkin(nodeseekCookie, false);
+self.addEventListener("message", (event) => {
+  workerFunc(event.data.cookie, event.data.random);
+});
 
 export {
-  checkin as nodeseekCheckin
+  workerFunc as nodeseekCheckin
 }
