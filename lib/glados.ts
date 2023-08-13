@@ -1,10 +1,10 @@
 import { GLaDOSCookie, userAgent } from "./env.ts";
 import { GLaDOSCheckinStatus, GLaDOSCheckinType } from "./types/glados.type.ts";
 
-const checkinUrl = "https://glados.rocks/api/user/checkin",
-  statusUrl = "https://glados.rocks/api/user/status",
-  referer = "https://glados.rocks/console/checkin",
-  origin = "https://glados.rocks",
+const checkinUrl = "https://glados.one/api/user/checkin",
+  statusUrl = "https://glados.one/api/user/status",
+  referer = "https://glados.one/console/checkin",
+  origin = "https://glados.one",
   data = {
     token: "glados.network",
   };
