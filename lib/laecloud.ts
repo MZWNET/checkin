@@ -12,17 +12,18 @@ const checkin = async (cookie: string) => {
       "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
       Origin: origin,
       Referer: referer,
-      "User-Agent": userAgent
+      "User-Agent": userAgent,
     },
-    body: "tkval=rZubYKecMxdW"
-  }).then(res => res.text());
+    body: "tkval=rZubYKecMxdW",
+  }).then((res) => res.text());
 
-  if (checkin === '您好像没有未支付的账单哦。请尝试 <a href="cart.php">下单一个</a>。') console.log("莱云签到失败，没有未支付的账单");
+  if (
+    checkin ===
+      '您好像没有未支付的账单哦。请尝试 <a href="cart.php">下单一个</a>。'
+  ) console.log("莱云签到失败，没有未支付的账单");
   else console.log(checkin);
-}
+};
 
 checkin(laecloudCookie);
 
-export {
-  checkin as laecloudCheckin
-}
+export { checkin as laecloudCheckin };

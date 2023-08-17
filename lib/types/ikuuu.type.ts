@@ -1,8 +1,6 @@
 interface ikuuuCheckinType {
-  msg: string,
-  ret: number
+  msg: string;
+  ret: number;
 }
 
-export type {
-  ikuuuCheckinType
-}
+export type { ikuuuCheckinType };

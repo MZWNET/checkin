@@ -1,8 +1,6 @@
 interface rainyunCheckinType {
-  code: number,
-  data: string
+  code: number;
+  data: string;
 }
 
-export type {
-  rainyunCheckinType
-}
+export type { rainyunCheckinType };
