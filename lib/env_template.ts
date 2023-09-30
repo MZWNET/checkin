@@ -1,17 +1,11 @@
-const GLaDOSCookie = "",
-  v2freeCookie = "",
-  ikuuuCookie = "",
+const v2freeCookie = "",
   nodeseekCookie = "",
   rainyunKey = "",
-  laecloudCookie = "",
   userAgent = "";
 
 export {
-  GLaDOSCookie,
-  ikuuuCookie,
-  laecloudCookie,
+  v2freeCookie,
   nodeseekCookie,
   rainyunKey,
-  userAgent,
-  v2freeCookie,
+  userAgent
 };

@@ -1,6 +1,6 @@
 {
   "tasks": {
-    "dev": "deno run --allow-net=w1.v2free.top,api.v2.rainyun.com,www.nodeseek.com,stack.laecloud.com,ikuuu.art,glados.one main.ts",
+    "start": "deno run --allow-net=w1.v2free.top,api.v2.rainyun.com,www.nodeseek.com,stack.laecloud.com,ikuuu.art,glados.one main.ts",
     "compile": "deno compile --allow-net=w1.v2free.top,api.v2.rainyun.com,www.nodeseek.com,stack.laecloud.com,ikuuu.art,glados.one main.ts"
   }
 }
